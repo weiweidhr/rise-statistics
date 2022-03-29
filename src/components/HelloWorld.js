@@ -58,6 +58,7 @@ const option = {
       {
         name: '上涨家数',
         type: 'line',
+        smooth: true,
         yAxisIndex: 0,
         lineStyle: {
           normal: {
