@@ -4,8 +4,8 @@ export default defineConfig({
   history: {
     type: 'hash'
   },
-  base: '/rise-statistics/',
-  publicPath: '/rise-statistics/',
+  base: '/docs/',
+  publicPath: '/docs/',
   hash: true,
   nodeModulesTransform: {
     type: 'none',
@@ -14,4 +14,5 @@ export default defineConfig({
     { path: '/', component: '@/pages/index' }
   ],
   fastRefresh: {},
+  dynamicImport: {}
 });
