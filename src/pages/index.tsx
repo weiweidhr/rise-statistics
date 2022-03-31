@@ -53,7 +53,6 @@ export default class App extends React.Component {
         <Chart date={this.state.date} nub={this.state.nub}></Chart>
         <div className="bottom_box">
           <Rising save={this.save}></Rising>
-          {/* <div className="backups" onClick={this.backup}>数据备份</div> */}
           <Button type="primary" onClick={this.backup}>数据备份</Button>
         </div>
       </div>
