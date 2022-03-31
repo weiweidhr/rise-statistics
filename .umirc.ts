@@ -13,6 +13,5 @@ export default defineConfig({
   routes: [
     { path: '/', component: '@/pages/index' }
   ],
-  fastRefresh: {},
-  dynamicImport: {}
+  fastRefresh: {}
 });
