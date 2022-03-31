@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {parseString} from '../tools.js';
 export function get(data) {
-    let url = 'http://api.waizaowang.com/doc/getPoolZT';
+    let url = 'https://api.waizaowang.com/doc/getPoolZT';
     url =  `${url}?${parseString(data)}`
 
     return axios.get(url).then(res=>{
