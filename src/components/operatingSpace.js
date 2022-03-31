@@ -1,6 +1,12 @@
 import React from "react";
-import { DateRangePicker } from 'element-react';
-import 'element-theme-default';
+
+import { DatePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/date-picker/locale/zh_CN';
+
+const { RangePicker } = DatePicker;
+
 
 export default class Operate extends React.Component {
     constructor(props) {
@@ -30,47 +36,14 @@ export default class Operate extends React.Component {
         return (
             <div className="date_box">
                 <span className="demonstration">日期范围: </span>
-                <DateRangePicker    value={this.state.date}
-                                    placeholder="请选择"
-                                    align="right"
-                                    ref={e=>this.daterangepicker2 = e}
-                                    disabledDate={time=>time.getTime() > Date.now()}
-                                    onChange = {date => {
-                                        this.setState({date})
-                                        this.cb(date);
-                                    }}
-                                    shortcuts={[{
-                                        text: '最近一周',
-                                        onClick: ()=> {
-                                            const end = new Date();
-                                            const start = new Date();
-                                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-                                            this.setState({date: [start, end]})
-                                            this.cb([start, end]);
-                                            this.daterangepicker2.togglePickerVisible()
-                                        }
-                                    }, {
-                                        text: '最近一个月',
-                                        onClick: ()=> {
-                                        const end = new Date();
-                                        const start = new Date();
-                                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-                                        this.setState({date: [start, end]})
-                                        this.cb([start, end]);
-                                        this.daterangepicker2.togglePickerVisible()
-                                        }
-                                    }, {
-                                        text: '最近三个月',
-                                        onClick: ()=> {
-                                        const end = new Date();
-                                        const start = new Date();
-                                        start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-                                        this.setState({date: [start, end]})
-                                        this.cb([start, end]);
-                                        this.daterangepicker2.togglePickerVisible()
-                                        }
-                                    }]}
-                />
+                <RangePicker    locale={locale}
+                                disabledDate={ current => current > moment().endOf('day') } 
+                                defaultValue={this.state.date} 
+                                onChange = {date => {
+                                    console.log('RangePicker-change', date)
+                                    this.setState({date})
+                                    this.cb(date);
+                                }} />
             </div>
         )
     }

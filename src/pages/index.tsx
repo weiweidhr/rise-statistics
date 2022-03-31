@@ -1,10 +1,11 @@
 import '../styles/index.less';
-import HelloWorld from '../components/HelloWorld.js';
+import Chart from '../components/chart.js';
 import Rising from '../components/rising.js';
 import Operate from '../components/operatingSpace';
 import React from "react";
 import {getRising} from '../request/index';
 import {clipboard} from '../tools.js';
+import { Button } from 'antd';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -46,14 +47,16 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="outer_box">
-        <HelloWorld date={this.state.date} nub={this.state.nub}></HelloWorld>
-        <div className="bottom_box">
+        <div className="top_box">
           <Operate callback = {this.callback}></Operate>
+        </div>
+        <Chart date={this.state.date} nub={this.state.nub}></Chart>
+        <div className="bottom_box">
           <Rising save={this.save}></Rising>
-          <div className="backups" onClick={this.backup}>数据备份</div>
+          {/* <div className="backups" onClick={this.backup}>数据备份</div> */}
+          <Button type="primary" onClick={this.backup}>数据备份</Button>
         </div>
       </div>
-  
     )
   }
 }

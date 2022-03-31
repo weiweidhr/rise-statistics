@@ -76,7 +76,7 @@ const option = {
   };
 
 
-export default class HelloWorld extends React.Component {
+export default class Chart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
