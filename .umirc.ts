@@ -4,8 +4,8 @@ export default defineConfig({
   history: {
     type: 'hash'
   },
-  base: '/docs/',
-  publicPath: '/docs/',
+  base: '/rise-statistics/',
+  publicPath: '/rise-statistics/',
   hash: true,
   nodeModulesTransform: {
     type: 'none',
